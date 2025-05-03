@@ -1,6 +1,4 @@
 # API-Cadastro-de-Usuario
-<<<<<<< HEAD
-
 Desenvolvimento da minha primeira API simples e funcional, onde a funcionalidade é cadastrar usuários.
 
 API desevolvida utilizando NodeJS, integração de banco de dados com MongoDB e a biblioteca Prisma
