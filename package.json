@@ -20,6 +20,7 @@
   "homepage": "https://github.com/MiguelNunesc/API-Cadastro-de-Usuario#readme",
   "dependencies": {
     "@prisma/client": "^6.7.0",
+    "cors": "^2.8.5",
     "express": "^5.1.0"
   },
   "devDependencies": {

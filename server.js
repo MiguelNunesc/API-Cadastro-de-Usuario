@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import pkg from "@prisma/client";
 const { PrismaClient } = pkg;
 
@@ -6,6 +7,7 @@ const prisma = new PrismaClient();
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.post("/users", async (req, res) => {
   await prisma.user.create({
@@ -20,15 +22,15 @@ app.post("/users", async (req, res) => {
 });
 
 app.get("/users", async (req, res) => {
-  let users = []
+  let users = [];
 
   if (req.query) {
     users = await prisma.user.findMany({
       where: {
         name: req.query.name,
         email: req.query.email,
-        age: req.query.age
-      }
+        age: req.query.age,
+      },
     });
   } else {
     users = await prisma.user.findMany();
@@ -55,11 +57,11 @@ app.put("/users/:id", async (req, res) => {
 app.delete("/users/:id", async (req, res) => {
   await prisma.user.delete({
     where: {
-      id: req.params.id
-    }
-  })
+      id: req.params.id,
+    },
+  });
 
-  res.status(200).json({message: 'Usuário deletado com sucesso'});
+  res.status(200).json({ message: "Usuário deletado com sucesso" });
 });
 
 app.listen(3000);
